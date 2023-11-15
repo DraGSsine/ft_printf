@@ -1,5 +1,6 @@
-NAME = libft.a
-SOURCES = ft_putchar.c ft_putstr.c ft_putnbr.c ft_printf.c
+NAME = libftprintf.a
+SOURCES = ft_putchar.c ft_putpointer.c ft_putstr.c ft_itoa.c ft_printf.c ft_puthex.c ft_put_unsigned_int.c
+
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = cc
@@ -10,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	ar rcs $@ $(OBJECTS)
 
-%.o: %.c libft.h
+%.o: %.c ft_printf.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
