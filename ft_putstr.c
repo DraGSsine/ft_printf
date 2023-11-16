@@ -6,21 +6,34 @@
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 09:17:17 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/15 13:45:22 by youchen          ###   ########.fr       */
+/*   Updated: 2023/11/16 20:33:18 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-void	ft_putstr(const char *s)
+int ft_putstr(char *s)
 {
-	if (!s)
+	int str_len;
+	int res;
+
+	str_len = ft_strlen(s);
+	if (s == NULL)
 	{
-		return ;
+		res = ft_putstr("(null)");
+		if(res == -1)
+			return -1;
+		return (6);
 	}
+	else if (!s)
+		return (0);
 	while (*s)
 	{
-		ft_putchar(*s);
+		res = ft_putchar(*s);
+		if(res == -1)
+			return -1;
 		s++;
 	}
+	return (str_len);
 }

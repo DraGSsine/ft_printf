@@ -6,39 +6,53 @@
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:45:56 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/15 15:09:46 by youchen          ###   ########.fr       */
+/*   Updated: 2023/11/16 20:52:03 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdint.h>
+#include "ft_printf.h"
 
-void	ft_puthex(uintptr_t nb,char X)
+int	ft_puthex(unsigned long long nb, char X)
 {
-	char	hex[16];
-	int		tmp;
-	int		i;
+	char hex[17];
+	int tmp;
+	int i = 0;
+	int x = 0;
+	int res;
+	
+	while (x <= 16)
+	{
+		hex[x] = '\0';
+		x++;
+	}
 
-	i = 0;
+	if (nb == 0)
+	{
+		res = ft_putchar('0');
+		if(res == -1)
+			return -1;
+		return (1);
+	}
 
-    if(nb < 0)
-    {
-        ft_putchar('-');
-        nb = -nb;
-    }
 	while (nb)
 	{
 		tmp = nb % 16;
-		if(X == 'X')
+		if (X == 'X')
 			hex[i] = (tmp + (tmp >= 10 ? ('A' - 10) : '0'));
 		else
 			hex[i] = (tmp + (tmp >= 10 ? ('a' - 10) : '0'));
 		nb /= 16;
 		i++;
 	}
-	while (i >= 0)
+
+	while (i > 0)
 	{
-		ft_putchar(hex[i]);
 		i--;
+		res = ft_putchar(hex[i]);
+		if(res == -1)
+			return -1;
 	}
+
+	return (ft_strlen(hex));
 }

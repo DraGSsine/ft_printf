@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-SOURCES = ft_putchar.c ft_putpointer.c ft_putstr.c ft_itoa.c ft_printf.c ft_puthex.c ft_put_unsigned_int.c
+SOURCES = ft_putchar.c ft_putadress.c ft_putstr.c ft_itoa.c ft_printf.c ft_puthex.c ft_put_unsigned_int.c ft_strlen.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

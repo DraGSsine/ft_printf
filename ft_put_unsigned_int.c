@@ -6,7 +6,7 @@
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:00:07 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/15 13:45:22 by youchen          ###   ########.fr       */
+/*   Updated: 2023/11/16 22:15:52 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,38 +24,53 @@
 
 #include "ft_printf.h"
 
-int	num_length(unsigned int number)
+int	get_length(unsigned int number)
 {
-	size_t	len;
+    size_t    len;
 
-	len = 0 ;
-	while (number != 0)
-	{
-		number /= 10;
-		len++;
-	}
-	return (len);
+    len = 0 ;
+    if(number == 0)
+      len = 1;
+    while (number != 0)
+    {
+        number /= 10;
+        len++;
+    }
+    return (len);
 }
-#include <stdio.h>
-void ft_put_unsigned_int(unsigned int n)
+void *my_malloc(size_t size)
 {
-	int			len;
-	char		*str;
-	long int	number;
+	void *ptr = malloc(size);
+	if (ptr == NULL)
+		return NULL;
+	return ptr;
+}
 
-	number = n;
-	len = num_length(number);
-	str = malloc(len + 1);
+int ft_put_unsigned_int(unsigned long number)
+{
+		int len = get_length(number);
+
+	char *str = my_malloc(len + 1);
 	if (str == NULL)
-		return ;
+		return -1;
 	str[len] = '\0';
+
 	if (number == 0)
 		str[0] = '0';
+
 	while (number != 0)
 	{
 		len--;
 		str[len] = '0' + (number % 10);
 		number /= 10;
 	}
-	ft_putstr(str);
+
+	len = ft_strlen(str);
+	int res = ft_putstr(str);
+	free(str);
+
+	if (res == -1)
+		return -1;
+
+	return len;
 }

@@ -10,21 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef LIBFT_H
-# define LIBFT_H
+#ifndef LIBFT_H
+#define LIBFT_H
 
-# include <stddef.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdint.h>
+#include <stddef.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdint.h>
 
-void	ft_puthex(uintptr_t nb,char X);
-void	ft_putnbr(int n);
-void	ft_putchar(char c);
-void	ft_putstr(const char *s);
-int     ft_printf(const char *format, ...);
-void	ft_itoa(int n);
-void    ft_put_unsigned_int(unsigned int n);
-void    ft_putpointer(void *ptr);
-
+int	ft_puthex(unsigned long long nb,char X);
+int ft_putchar(char c);
+int ft_putstr(char *s);
+int ft_printf(const char *format, ...);
+int ft_itoa(long int number);
+int ft_put_unsigned_int(unsigned long number);
+int ft_putadress(void *add);
+int ft_strlen(char *s);
 #endif

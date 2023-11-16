@@ -6,14 +6,12 @@
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 09:39:06 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/15 13:45:22 by youchen          ###   ########.fr       */
+/*   Updated: 2023/11/16 20:29:53 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void ft_putchar(char c)
+int ft_putchar(char c)
 {
-    write(1, &c, 1);
+    return (write(1, &c, 1));
 }
-

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 10:00:20 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/15 13:45:22 by youchen          ###   ########.fr       */
+/*   Created: 2023/11/15 16:14:01 by youchen           #+#    #+#             */
+/*   Updated: 2023/11/15 16:31:42 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int n)
+int ft_strlen(char *s)
 {
-	long int	ln;
+    int count;
 
-	ln = n;
-	if (ln < 0)
-	{
-		ft_putchar('-');
-		ln = -ln;
-	}
-	if (ln >= 10)
-	{
-		ft_putnbr(ln / 10);
-	}
-	ft_putchar('0' + (ln % 10));
+    count = 0;
+    if(s == NULL)
+        return (count);
+    while (*s)
+    {
+        count++;
+        s++;
+    }
+    return (count);
 }
