@@ -6,7 +6,7 @@
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 19:07:16 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/17 12:08:48 by youchen          ###   ########.fr       */
+/*   Updated: 2023/11/17 15:05:21 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		count;
-	int		res;
 
 	va_start(args, format);
 	count = 0;
@@ -65,15 +64,16 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			if (*format == '\0')
+				return (count);
 			if (print_format_specifier(format, args, &count) == -1)
 				return (-1);
 		}
 		else
 		{
-			res = ft_putchar(*format);
-			if (res == -1)
+			count += ft_putchar(*format);
+			if (count == -1)
 				return (-1);
-			count += res;
 		}
 		format++;
 	}
