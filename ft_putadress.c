@@ -13,20 +13,21 @@
 #include <stdint.h>
 #include "ft_printf.h"
 
-int ft_putadress(void *add) {
-    int final_address;
-    unsigned long long address = 0;
-    int res;
+int	ft_putadress(void *add)
+{
+	int					final_address;
+	unsigned long long	address;
+	int					res;
 
-    address = (unsigned long long)add;
-    if (!address) {
-        return ft_putstr("0x0");
-    }
-    res = ft_putstr("0x");
-    if(res == -1)
-        return -1;
-    final_address = ft_puthex(address,'x');
-    if(final_address == -1)
-        return -1;
-    return (final_address + 2);
+	address = 0;
+	address = (unsigned long long)add;
+	if (!address)
+		return (ft_putstr("0x0"));
+	res = ft_putstr("0x");
+	if (res == -1)
+		return (-1);
+	final_address = ft_puthex(address, 'x');
+	if (final_address == -1)
+		return (-1);
+	return (final_address + 2);
 }

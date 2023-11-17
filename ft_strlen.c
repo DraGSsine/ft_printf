@@ -12,17 +12,17 @@
 
 #include "ft_printf.h"
 
-int ft_strlen(char *s)
+int	ft_strlen(char *s)
 {
-    int count;
+	int	count;
 
-    count = 0;
-    if(s == NULL)
-        return (count);
-    while (*s)
-    {
-        count++;
-        s++;
-    }
-    return (count);
+	count = 0;
+	if (s == NULL)
+		return (count);
+	while (*s)
+	{
+		count++;
+		s++;
+	}
+	return (count);
 }

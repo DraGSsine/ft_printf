@@ -6,21 +6,25 @@
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:17:48 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/16 22:03:17 by youchen          ###   ########.fr       */
+/*   Updated: 2023/11/17 11:05:02 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int get_num_length(int number)
-{
-	size_t len;
+#include <stdlib.h>
 
-	if (number <= 0)
-		len = 1;
-	else
-		len = 0;
-	while (number != 0)
+int	get_num_length(long int number)
+{
+	int	len;
+
+	len = 1;
+	if (number < 0)
+	{
+		len++;
+		number = -number;
+	}
+	while (number > 9)
 	{
 		number /= 10;
 		len++;
@@ -28,46 +32,43 @@ int get_num_length(int number)
 	return (len);
 }
 
-#include <stdlib.h>
-
-void *ft_malloc(size_t size)
+char	*convert_number_to_str(long int number, int len)
 {
-	void *ptr = malloc(size);
-	if (ptr == NULL)
-		return NULL;
-	return ptr;
-}
+	char	*str;
 
-int ft_itoa(long int number)
-{
-	int len = get_num_length(number);
-
-	char *str = ft_malloc(len + 1);
+	str = malloc(len + 1);
 	if (str == NULL)
-		return -1;
+		return (NULL);
 	str[len] = '\0';
-
-	if (number < 0)
+	if (number == 0)
+		str[0] = '0';
+	else if (number < 0)
 	{
 		str[0] = '-';
 		number = -number;
 	}
-	else if (number == 0)
-		str[0] = '0';
-
 	while (number != 0)
 	{
-		len--;
-		str[len] = '0' + (number % 10);
+		str[--len] = '0' + (number % 10);
 		number /= 10;
 	}
+	return (str);
+}
 
+int	ft_itoa(long int number)
+{
+	int		len;
+	char	*str;
+	int		res;
+
+	len = get_num_length(number);
+	str = convert_number_to_str(number, len);
+	if (str == NULL)
+		return (-1);
 	len = ft_strlen(str);
-	int res = ft_putstr(str);
+	res = ft_putstr(str);
 	free(str);
-
 	if (res == -1)
-		return -1;
-
-	return len;
+		return (-1);
+	return (len);
 }
