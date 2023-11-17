@@ -6,11 +6,10 @@
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 19:07:16 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/17 11:43:41 by youchen          ###   ########.fr       */
+/*   Updated: 2023/11/17 12:08:48 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include "ft_printf.h"
 
 int	check(int f, int *count)

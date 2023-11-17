@@ -6,11 +6,10 @@
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:48:06 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/16 21:03:26 by youchen          ###   ########.fr       */
+/*   Updated: 2023/11/17 12:09:05 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
 #include "ft_printf.h"
 
 int	ft_putadress(void *add)

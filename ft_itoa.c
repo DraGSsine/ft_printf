@@ -6,13 +6,11 @@
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:17:48 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/17 11:05:02 by youchen          ###   ########.fr       */
+/*   Updated: 2023/11/17 12:08:42 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-#include <stdlib.h>
 
 int	get_num_length(long int number)
 {

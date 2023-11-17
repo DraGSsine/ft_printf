@@ -6,11 +6,10 @@
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:45:56 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/17 01:13:33 by youchen          ###   ########.fr       */
+/*   Updated: 2023/11/17 12:09:11 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "ft_printf.h"
 
 int	printf_hex(unsigned long long nb, char *hex, char X)
