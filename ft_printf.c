@@ -6,7 +6,7 @@
 /*   By: youchen <youchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 19:07:16 by youchen           #+#    #+#             */
-/*   Updated: 2023/11/17 15:05:21 by youchen          ###   ########.fr       */
+/*   Updated: 2023/11/23 12:28:57 by youchen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
-				return (count);
+				break ;
 			if (print_format_specifier(format, args, &count) == -1)
 				return (-1);
 		}
